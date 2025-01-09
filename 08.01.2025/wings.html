@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Bird animation</title>
+        <style>
+            body{
+                display: flex;
+                padding: 0;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background: linear-gradient(to bottom,lightblue);
+                overflow: hidden;
+            }
+            .bird{
+                position: absolute;
+                width: 100px;
+                height: 90px;
+                animation: fly 6s linear infinite;
+            }
+
+            .bird-body{
+                background-color: skyblue;
+                position: absolute;
+                width: 100px;
+                height: 90px;
+                border-radius: 50%;
+                top: 15px;
+                left: 25px;
+            }
+            .wing{
+                position: absolute;
+                background-color: blue;
+                width: 35px;
+                height: 40px;
+                border-radius: 50%;
+                top: 5px;
+                left:15px ;
+                transform-origin: bottom center;
+            }
+            .left-wings,.right-wings{
+                    left: auto;
+                    right: 10px;
+            }
+            .fly{
+                position: absolute;
+                background-color: yellow;
+                width: 10px;
+                height: 10px;clip-path: polygon(0 0 100%,0 100%);
+                top: 30px;
+                left: 5px;
+            }
+            @keyframes fly{
+                0%{
+                    transform: translateX(-150px) translateY(22px);
+                }
+                25%{
+                    transform: translateX(150px) translateY(-22px);
+                }
+                50%{
+                    transform: translateX(150px) translateY(22px);
+                }
+                75%{
+                    transform: translateX(150px) translateY(-22px);
+                }
+                100%{
+                    transform: translateX(-150px) translateY(22px);
+                }
+                }
+           
+        </style>
+    </head>
+    <body>
+        <div class="bird">
+        <div class="bird-body">
+            <div class="wing">
+            <div class="left-wings"></div>
+            <div class="right-wings"></div>
+            </div>
+            <div class="fly"></div>
+        </div>
+        </div>
+    </body>
+</html>

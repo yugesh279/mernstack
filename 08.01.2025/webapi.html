@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Web Api</title>
+    </head>
+    <body>
+        <h1>Weather App</h1>
+        <button id ="getClick">Check Weather</button>
+        <p id="temp">To know weather update</p>
+
+        <script>
+          // const Id="";
+            const temp=document.getElementById('temp');
+           const CheckWeather=document.getElementById('getClick');
+
+            //defination
+            CheckWeather.addEventListener('click',()=>{
+            if('geo'in navigator){
+            navigator.geolocation.getCurrentPosition((position)=>{
+              const{latitude,longitude}=position.coords;
+
+              //fetch Api
+              localStorage.setItem('latitude',latitude);
+              localStorage.setItem('longitude',longitude);
+              url="https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=33.3213&lon=-21.0938&zoom=5";
+              fetch(url).then(Response=>Response.json())
+              .then(data=>{
+                weather=`location:{data.name},Temperature:{data.temp},weather[0].Temperature.Result}`;
+                temp.textContent=weather;
+              })
+            });
+        }
+       else{
+        console.error('error on fetching data');
+        temp.textContent='Failed to access the weather data';
+
+       }
+    });
+        </script>
+    </body>
+</html>

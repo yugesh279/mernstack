@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Animations</title>
+        <style>
+            body{
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                margin: 0%;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background: linear-gradient(120deg,red,rgb(234, 199, 58));
+                color: aliceblue;
+            }
+            .animy{
+                overflow: hidden;
+                width: 90x;
+                border: 3px solid rgb(231, 185, 129);
+                border-radius: 12px;
+                padding: 12px;
+               white-space: nowrep;
+            }
+            .effect{
+                display: inline-block;
+                font-size: 1rem;
+                animation: scroll-left 12s linear infinite;
+            }
+            @keyframes scroll-left{
+                from{
+                    transform:translateX(100%);
+                }
+                to{
+                    transform: translateX(-100%);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="animy">
+            <div class="effect">
+                Here is the scrolling text animation
+            </div>
+        </div>
+    </body>
+</html>
